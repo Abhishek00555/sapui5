@@ -1,4 +1,4 @@
-sap.ui.controller("view.view2", {
+sap.ui.controller("view.View2", {
 
 	/**
 	 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -34,5 +34,9 @@ sap.ui.controller("view.view2", {
 	//	onExit: function() {
 	//
 	//	}
+	
+	onBack: function() {
+		app.to(page);
+	}
 
 });

@@ -13,10 +13,16 @@ sap.ui.jsview("view.View1", {
 	 * @memberOf view.View1
 	 */
 	createContent: function(oController) {
+		
+		var oButton = new sap.m.Button("buttonId", {
+			text : "Next Page",
+			press: [oController.onNextPage]
+		});
+		
 		return new sap.m.Page({
-			title: "Title1",
+			title: "First Page",
 			content: [
-
+				oButton
 			]
 		});
 	}

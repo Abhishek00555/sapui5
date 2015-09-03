@@ -34,5 +34,9 @@ sap.ui.controller("view.View1", {
 	//	onExit: function() {
 	//
 	//	}
+	
+	onNextPage: function() {
+		app.to (page2);
+	}
 
 });
