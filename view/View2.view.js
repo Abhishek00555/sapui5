@@ -13,19 +13,39 @@ sap.ui.jsview("view.View2", {
 	 * @memberOf view.view2
 	 */
 	createContent: function(oController) {
-		
+
 		var oBackButton = new sap.m.Button("backButton", {
-			text : "Back to First Page",
+			text: "First Page",
 			styled: false,
-			press : [oController.onBack]
+			type :	sap.m.ButtonType.Back,
+			press: [oController.onBack]
 		});
-		
-		oBackButton.addStyleClass('button');
-		
+
+		// oBackButton.addStyleClass('button');
+
+		var oCarosel = new sap.ui.commons.Carousel();
+		oCarosel.setWidth("800px");
+		oCarosel.setHeight("500px");
+		oCarosel.setOrientation("horizontal");
+
+		oCarosel.addContent(new sap.ui.commons.Image("image1Id", {
+			src: "view/image/Koala.jpg",
+			alt: "Koala",
+			hieght: "500px",
+			width: "800px"
+		}));
+
+		oCarosel.addContent(new sap.ui.commons.Image("image2Id", {
+			src: "view/image/Desert.jpg",
+			alt: "Image",
+			hieght: "500px",
+			width: "800px"
+		}));
+
 		return new sap.m.Page({
 			title: "Title",
 			content: [
-				oBackButton
+				oBackButton, oCarosel
 			]
 		});
 	}

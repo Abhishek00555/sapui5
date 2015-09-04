@@ -16,13 +16,26 @@ sap.ui.jsview("view.View1", {
 		
 		var oButton = new sap.m.Button("buttonId", {
 			text : "Next Page",
+			type : sap.m.ButtonType.Accept,
 			press: [oController.onNextPage]
 		});
+		
+		var oStandardTile = new sap.m.StandardTile();
+		oStandardTile.setIcon("sap-icon://image-viewer");
+		oStandardTile.setTitle("Images");
+		oStandardTile.setInfo("View Images");
+		oStandardTile.setInfoState("Error");
+		oStandardTile.setType(sap.m.StandardTileType.Create);
+		oStandardTile.firePress([oController.onNextPage]);
+		oStandardTile.attachPress(oController.onNextPage);
+		var oTileContainer = new sap.m.TileContainer();
+		oTileContainer.addTile(oStandardTile);
+		
 		
 		return new sap.m.Page({
 			title: "First Page",
 			content: [
-				oButton
+				oTileContainer, oButton
 			]
 		});
 	}
